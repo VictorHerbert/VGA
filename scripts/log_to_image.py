@@ -55,8 +55,8 @@ def render_vga(input_file, output_file):
     vga_file = open(input_file, 'r')
 
     # From: http://tinyvga.com/vga-timing/
-    res_x = 50
-    res_y = 50
+    res_x = 320
+    res_y = 240
 
     # Pixel Clock: ~10 ns, 108 MHz
     pixel_clk = 10e-9

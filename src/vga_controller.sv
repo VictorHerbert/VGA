@@ -19,11 +19,11 @@ module VGAController (
     localparam H_LINE = H_VISIBLE_AREA + H_FRONT_PORCH + H_SYNC_PULSE + H_BACK_PORCH;
     localparam V_LINE = V_VISIBLE_AREA + V_FRONT_PORCH + V_SYNC_PULSE + V_BACK_PORCH;
 
-    localparam H_SYNC_ON_TRIGGER = H_VISIBLE_AREA + H_FRONT_PORCH - 1;
-    localparam H_SYNC_OFF_TRIGGER  = H_VISIBLE_AREA + H_FRONT_PORCH + H_SYNC_PULSE - 1;
+    localparam H_SYNC_ON_TRIGGER = H_VISIBLE_AREA + H_FRONT_PORCH;
+    localparam H_SYNC_OFF_TRIGGER  = H_VISIBLE_AREA + H_FRONT_PORCH + H_SYNC_PULSE ;
 
-    localparam V_SYNC_ON_TRIGGER = V_VISIBLE_AREA + V_FRONT_PORCH - 1;
-    localparam V_SYNC_OFF_TRIGGER  = V_VISIBLE_AREA + V_FRONT_PORCH + V_SYNC_PULSE - 1;
+    localparam V_SYNC_ON_TRIGGER = V_VISIBLE_AREA + V_FRONT_PORCH;
+    localparam V_SYNC_OFF_TRIGGER  = V_VISIBLE_AREA + V_FRONT_PORCH + V_SYNC_PULSE;
 
 
     input clk, reset;
@@ -49,7 +49,7 @@ module VGAController (
     always_ff @(posedge clk) begin
         if(reset) begin
             horizontal_coord = 0; vertical_coord = 0;
-            h_sync = 0; v_sync = 0;
+            h_sync = 1; v_sync = 1;
             idx = 0;
         end
         else begin
